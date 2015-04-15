@@ -1,0 +1,10 @@
+PODS:
+  - NSUserDefaults+Subscripting (1.0.0)
+
+DEPENDENCIES:
+  - NSUserDefaults+Subscripting
+
+SPEC CHECKSUMS:
+  NSUserDefaults+Subscripting: 7e6e8f15dffe998259030f005a7c4e3782e510fd
+
+COCOAPODS: 0.36.3
