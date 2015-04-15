@@ -7,6 +7,7 @@
 //
 
 let helveticaNeueUltraLightFontName = "HelveticaNeue-UltraLight"
+let helveticaNeueLightFontName = "HelveticaNeue-Light"
 
 import UIKit
 
@@ -20,7 +21,7 @@ class IntroViewController: UIViewController {
     }()
     var subtitleLabel = {() -> UILabel in
         var subtitleLabel = UILabel()
-        subtitleLabel.font = UIFont(name: helveticaNeueUltraLightFontName, size: 24)
+        subtitleLabel.font = UIFont(name: helveticaNeueLightFontName, size: 24)
         subtitleLabel.text = "Jonathan Chan\nWWDC 2015"
         subtitleLabel.numberOfLines = 2
         subtitleLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
@@ -43,7 +44,7 @@ class IntroViewController: UIViewController {
         // Do any additional setup after loading the view.
 
         self.helloLabel.center = self.view.center
-        self.subtitleLabel.center = CGPointMake(self.view.center.x, self.view.center.y + 15)
+        self.subtitleLabel.center = self.view.center
         self.continueButton.center = CGPointMake(self.view.center.x, self.view.center.y + 100)
     }
 
