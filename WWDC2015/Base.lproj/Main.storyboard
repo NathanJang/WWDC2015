@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Portfolio" id="MG5-IC-aBh"/>
+                    <tabBarItem key="tabBarItem" title="Portfolio" image="Briefcase" id="MG5-IC-aBh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYh-bv-egJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -36,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="About" id="gF7-OQ-84i"/>
+                    <tabBarItem key="tabBarItem" title="About" image="Info" id="gF7-OQ-84i"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4DC-l4-7Sl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -103,6 +103,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Briefcase" width="30" height="30"/>
         <image name="House" width="30" height="30"/>
+        <image name="Info" width="30" height="30"/>
     </resources>
 </document>
