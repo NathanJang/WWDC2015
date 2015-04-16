@@ -6,9 +6,6 @@
 //  Copyright (c) 2015 Jonathan Chan. All rights reserved.
 //
 
-let helveticaNeueUltraLightFontName = "HelveticaNeue-UltraLight"
-let helveticaNeueLightFontName = "HelveticaNeue-Light"
-
 import UIKit
 
 class IntroViewController: UIViewController {
