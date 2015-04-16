@@ -92,7 +92,6 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
             // bioLabel
             self.bioLabel.center = CGPointMake(frame.width / 2, frame.height / 2 + 115)
             self.scrollView.addSubview(self.bioLabel)
-            break
 
         default:
             break
