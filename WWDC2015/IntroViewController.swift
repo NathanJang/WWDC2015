@@ -14,8 +14,8 @@ import UIKit
 class IntroViewController: UIViewController {
     var helloLabel = {() -> UILabel in
         var helloLabel = UILabel()
-        helloLabel.font = UIFont(name: helveticaNeueUltraLightFontName, size: 72)
-        helloLabel.text = "Hello."
+        helloLabel.font = UIFont(name: helveticaNeueUltraLightFontName, size: 86)
+        helloLabel.text = "Hello"
         helloLabel.sizeToFit()
         return helloLabel
     }()
