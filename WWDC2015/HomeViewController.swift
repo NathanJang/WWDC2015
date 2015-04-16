@@ -80,21 +80,21 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 
         switch pageNumber {
 
-        case 0:
-            // facePhotoImageView
-            self.facePhotoImageView.center = CGPointMake(frame.width / 2, frame.height / 2 - 75)
-            self.scrollView.addSubview(self.facePhotoImageView)
+            case 0:
+                // facePhotoImageView
+                self.facePhotoImageView.center = CGPointMake(frame.width / 2, frame.height / 2 - 75)
+                self.scrollView.addSubview(self.facePhotoImageView)
 
-            // nameLabel
-            self.nameLabel.center = CGPointMake(frame.width / 2, frame.height / 2 + 30)
-            self.scrollView.addSubview(self.nameLabel)
+                // nameLabel
+                self.nameLabel.center = CGPointMake(frame.width / 2, frame.height / 2 + 30)
+                self.scrollView.addSubview(self.nameLabel)
 
-            // bioLabel
-            self.bioLabel.center = CGPointMake(frame.width / 2, frame.height / 2 + 115)
-            self.scrollView.addSubview(self.bioLabel)
+                // bioLabel
+                self.bioLabel.center = CGPointMake(frame.width / 2, frame.height / 2 + 115)
+                self.scrollView.addSubview(self.bioLabel)
 
-        default:
-            break
+            default:
+                break
         }
     }
 
