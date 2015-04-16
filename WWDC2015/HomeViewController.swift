@@ -8,17 +8,32 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UIScrollViewDelegate {
+    let numberOfPages = 3
+
+    var scrollView = UIScrollView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+
+        self.scrollView.frame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height - self.tabBarController!.tabBar.frame.size.height)
+        self.scrollView.contentSize.width = CGFloat(self.numberOfPages) * self.view.bounds.width
+        self.scrollView.pagingEnabled = true
+        self.scrollView.delegate = self
+        self.view.addSubview(self.scrollView)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    // MARK: - Delegate methods
+    // MARK: Scroll view
+
+    func scrollViewDidScroll(scrollView: UIScrollView) {
     }
 
     /*

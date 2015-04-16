@@ -7,7 +7,7 @@
         <!--Portfolio-->
         <scene sceneID="4lE-8d-fbX">
             <objects>
-                <viewController id="lfY-hT-8HT" sceneMemberID="viewController">
+                <viewController id="lfY-hT-8HT" customClass="PortfolioMenuViewController" customModule="WWDC2015" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ysg-rf-UWG"/>
                         <viewControllerLayoutGuide type="bottom" id="2K5-JF-Qfv"/>
@@ -47,13 +47,14 @@
             <objects>
                 <viewController id="wMJ-Df-xZh" customClass="HomeViewController" customModule="WWDC2015" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="0x1-ht-Ogc"/>
-                        <viewControllerLayoutGuide type="bottom" id="zkK-oH-UKO"/>
+                        <viewControllerLayoutGuide type="top" id="eC1-tq-3TX"/>
+                        <viewControllerLayoutGuide type="bottom" id="dbw-oc-tfF"/>
                     </layoutGuides>
-                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="jjI-DK-01C">
+                    <view key="view" contentMode="scaleToFill" id="b0l-e3-YZp">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </scrollView>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <tabBarItem key="tabBarItem" title="Home" image="House" id="oTn-4A-bGf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a28-8I-CiM" userLabel="First Responder" sceneMemberID="firstResponder"/>
