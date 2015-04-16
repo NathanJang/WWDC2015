@@ -32,7 +32,7 @@ class IntroViewController: UIViewController {
     }()
     var continueButton = {() -> UIButton in
         var continueButton = UIButton()
-        continueButton.setBackgroundImage(UIImage(named: "RightArrow"), forState: UIControlState.Normal)
+        continueButton.setBackgroundImage(UIImage(named: "RightArrowIcon"), forState: UIControlState.Normal)
         continueButton.sizeToFit()
         continueButton.alpha = 0
         return continueButton

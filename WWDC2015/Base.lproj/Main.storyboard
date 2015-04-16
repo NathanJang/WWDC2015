@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Portfolio" image="Briefcase" id="MG5-IC-aBh"/>
+                    <tabBarItem key="tabBarItem" title="Portfolio" image="BriefcaseIcon" id="MG5-IC-aBh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYh-bv-egJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -36,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="About" image="Info" id="gF7-OQ-84i"/>
+                    <tabBarItem key="tabBarItem" title="About" image="InfoIcon" id="gF7-OQ-84i"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4DC-l4-7Sl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -55,7 +55,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="House" id="oTn-4A-bGf"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="HouseIcon" id="oTn-4A-bGf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a28-8I-CiM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -104,8 +104,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Briefcase" width="30" height="30"/>
-        <image name="House" width="30" height="30"/>
-        <image name="Info" width="30" height="30"/>
+        <image name="BriefcaseIcon" width="30" height="30"/>
+        <image name="HouseIcon" width="30" height="30"/>
+        <image name="InfoIcon" width="30" height="30"/>
     </resources>
 </document>
