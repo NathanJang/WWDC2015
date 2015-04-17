@@ -42,7 +42,7 @@ class IntroViewController: UIViewController {
 
         self.helloLabel.center = self.view.center
         self.subtitleLabel.center = self.view.center
-        self.continueButton.center = CGPointMake(self.view.center.x, self.view.center.y + 100)
+        self.continueButton.center = CGPoint(x: self.view.center.x, y: self.view.center.y + 100)
     }
 
     override func didReceiveMemoryWarning() {
