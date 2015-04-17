@@ -4,7 +4,6 @@
 use_frameworks!
 
 target 'WWDC2015' do
-    # pod 'Spring', '~> 1.0.3'
     pod 'NSUserDefaults+Subscripting'
 end
 
