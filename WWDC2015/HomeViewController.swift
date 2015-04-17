@@ -1,6 +1,6 @@
 //
 //  HomeViewController.swift
-//  jonathan-chan
+//  WWDC2015
 //
 //  Created by Jonathan Chan on 2015-04-15.
 //  Copyright (c) 2015 Jonathan Chan. All rights reserved.
