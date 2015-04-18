@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE5429391AE002500096B101 /* FontNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5429381AE002500096B101 /* FontNames.swift */; };
+		CE5429391AE002500096B101 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5429381AE002500096B101 /* Globals.swift */; };
 		CEAC46881ADE604F003AD804 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC46871ADE604F003AD804 /* AppDelegate.swift */; };
 		CEAC468D1ADE604F003AD804 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEAC468B1ADE604F003AD804 /* Main.storyboard */; };
 		CEAC468F1ADE604F003AD804 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEAC468E1ADE604F003AD804 /* Images.xcassets */; };
@@ -33,7 +33,8 @@
 /* Begin PBXFileReference section */
 		4F1BDE03B1CF43075F569F88 /* Pods_WWDC2015.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WWDC2015.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FFDC63B75915F51C2E2E803 /* Pods-WWDC2015.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWDC2015.release.xcconfig"; path = "Pods/Target Support Files/Pods-WWDC2015/Pods-WWDC2015.release.xcconfig"; sourceTree = "<group>"; };
-		CE5429381AE002500096B101 /* FontNames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontNames.swift; sourceTree = "<group>"; };
+		CE5429381AE002500096B101 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		CE54293B1AE22F460096B101 /* WWDC2015-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WWDC2015-Bridging-Header.h"; sourceTree = "<group>"; };
 		CEAC46821ADE604F003AD804 /* WWDC2015.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWDC2015.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEAC46861ADE604F003AD804 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEAC46871ADE604F003AD804 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +126,8 @@
 				CEAC468B1ADE604F003AD804 /* Main.storyboard */,
 				CEAC468E1ADE604F003AD804 /* Images.xcassets */,
 				CEAC46901ADE604F003AD804 /* LaunchScreen.xib */,
+				CE5429381AE002500096B101 /* Globals.swift */,
+				CE54293B1AE22F460096B101 /* WWDC2015-Bridging-Header.h */,
 				CEAC46851ADE604F003AD804 /* Supporting Files */,
 			);
 			path = WWDC2015;
@@ -134,7 +137,6 @@
 			isa = PBXGroup;
 			children = (
 				CEAC46861ADE604F003AD804 /* Info.plist */,
-				CE5429381AE002500096B101 /* FontNames.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -313,7 +315,7 @@
 				CEAC46AE1ADE609B003AD804 /* PortfolioMenuViewController.swift in Sources */,
 				CEAC46881ADE604F003AD804 /* AppDelegate.swift in Sources */,
 				CEAC46AC1ADE609B003AD804 /* HomeViewController.swift in Sources */,
-				CE5429391AE002500096B101 /* FontNames.swift in Sources */,
+				CE5429391AE002500096B101 /* Globals.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,11 +443,19 @@
 			baseConfigurationReference = EAB8939AA2AA64D856763298 /* Pods-WWDC2015.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"${PODS_ROOT}/Headers/**",
+				);
 				INFOPLIST_FILE = WWDC2015/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WWDC2015/WWDC2015-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -454,11 +464,13 @@
 			baseConfigurationReference = 4FFDC63B75915F51C2E2E803 /* Pods-WWDC2015.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = WWDC2015/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WWDC2015/WWDC2015-Bridging-Header.h";
 			};
 			name = Release;
 		};
