@@ -11,14 +11,14 @@ import UIKit
 class IntroViewController: UIViewController {
     var helloLabel = {() -> UILabel in
         var helloLabel = UILabel()
-        helloLabel.font = UIFont(name: helveticaNeueUltraLightFontName, size: 86)
+        helloLabel.font = UIFont(name: "HelveticaNeue-UltraLight", size: 86)
         helloLabel.text = "Hello"
         helloLabel.sizeToFit()
         return helloLabel
     }()
     var subtitleLabel = {() -> UILabel in
         var subtitleLabel = UILabel()
-        subtitleLabel.font = UIFont(name: helveticaNeueLightFontName, size: 24)
+        subtitleLabel.font = UIFont(name: "HelveticaNeue-Light", size: 24)
         subtitleLabel.text = "Jonathan Chan\nWWDC 2015"
         subtitleLabel.numberOfLines = 2
         subtitleLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
