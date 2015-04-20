@@ -17,7 +17,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Portfolio" image="BriefcaseIcon" id="MG5-IC-aBh"/>
+                    <tabBarItem key="tabBarItem" title="Portfolio" image="BriefcaseIcon" id="MG5-IC-aBh">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="BriefcaseIconSelected"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYh-bv-egJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -55,7 +59,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="HouseIcon" id="oTn-4A-bGf"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="HouseIcon" id="oTn-4A-bGf">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="HouseIconSelected"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a28-8I-CiM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -70,6 +78,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.0" green="0.46666666670000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="wMJ-Df-xZh" kind="relationship" relationship="viewControllers" id="Uaf-Fb-6la"/>
@@ -105,7 +118,10 @@
     </scenes>
     <resources>
         <image name="BriefcaseIcon" width="30" height="30"/>
+        <image name="BriefcaseIconSelected" width="30" height="30"/>
         <image name="HouseIcon" width="30" height="30"/>
+        <image name="HouseIconSelected" width="30" height="30"/>
         <image name="InfoIcon" width="30" height="30"/>
     </resources>
+    <color key="tintColor" red="0.0" green="0.46666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
