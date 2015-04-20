@@ -61,14 +61,14 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         return bioLabel
     }()
 
-    // MARK: Page 1: Cityscape
+    // MARK: Page 1: Shanghai
     let blurredShanghaiBuildingsPhotoImage = UIImage(named: "BlurredShanghaiBuildingsPhoto")
 
     var eleventhGraderLabel = {() -> UILabel in
         var eleventhGraderLabel = UILabel()
         eleventhGraderLabel.text = "AN 11TH GRADER AT"
         eleventhGraderLabel.font = UIFont(name: "Avenir-Book", size: 24)
-        eleventhGraderLabel.textColor = UIColor(red: 0.184, green: 0.6, blue: 0.851, alpha: 1)
+        eleventhGraderLabel.textColor = UIColor(red: 0.067, green: 0.733, blue: 1, alpha: 1) // #3DF
         eleventhGraderLabel.sizeToFit()
         return eleventhGraderLabel
     }()
@@ -82,6 +82,33 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         sasLabel.sizeToFit()
         return sasLabel
     }()
+
+    // MARK: Page 2: Coding
+    var shouldAnimatePage2 = false
+
+    var laptopIconImageView = {() -> UIImageView in
+        var laptopIconImageView = UIImageView()
+        laptopIconImageView.image = UIImage(named: "LaptopIcon")
+        laptopIconImageView.sizeToFit()
+        return laptopIconImageView
+    }()
+    var codeLanguageLogoArray = [
+    ]
+
+    let codingLabelText: String = "I like to code. "
+    var codingLabel = {() -> UILabel in
+        var codingLabel = UILabel()
+        codingLabel.font = UIFont(name: "Menlo-Regular", size: 28)
+        return codingLabel
+    }()
+    var codingLabelCursor = {() -> UILabel in
+        var codingLabelCursor = UILabel()
+        codingLabelCursor.text = " "
+        codingLabelCursor.backgroundColor = UIColor.grayColor()
+        return codingLabelCursor
+    }()
+    var blinkCodingLabelCursorTimer: NSTimer?
+    var didBeginAnimatingPage2 = false
 
     // MARK: - VC lifecycle
 
@@ -102,8 +129,8 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         self.scrollView.delegate = self
         self.view.addSubview(self.scrollView)
 
-        for page in 0..<self.numberOfPages {
-            self.drawInitialPage(numbered: page)
+        for pageNumber in 0..<self.numberOfPages {
+            self.drawInitialPage(numbered: pageNumber)
         }
     }
 
@@ -143,6 +170,26 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 
                 self.sasLabel.frame.origin = CGPoint(x: self.eleventhGraderLabel.frame.origin.x + self.eleventhGraderLabel.frame.width - self.sasLabel.frame.width, y: 70)
                 self.scrollView.addSubview(self.sasLabel)
+
+            case 2:
+                // Set the text...
+                self.codingLabel.text = self.codingLabelText
+                // size & frame it...
+                self.codingLabel.sizeToFit()
+                self.codingLabel.center.x = center.x
+                self.codingLabel.frame.origin.y = center.y + 75
+                // and then clear the text so we can add it animated.
+                self.codingLabel.text = ""
+                self.scrollView.addSubview(self.codingLabel)
+
+                self.codingLabelCursor.font = self.codingLabel.font
+                self.codingLabelCursor.sizeToFit()
+                self.codingLabelCursor.frame.origin = self.codingLabel.frame.origin
+                self.scrollView.addSubview(self.codingLabelCursor)
+
+                self.laptopIconImageView.center.x = center.x
+                self.laptopIconImageView.frame.origin.y = center.y - self.laptopIconImageView.frame.size.width / 2
+                self.scrollView.addSubview(self.laptopIconImageView)
 
             default:
                 break
@@ -187,6 +234,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
                 } else {
                     setDefaultStatusBarStyle()
                 }
+                self.shouldAnimatePage2 = false
 
                 hasBackground = true
                 self.backgroundBackView.image = self.blurredShanghaiBuildingsPhotoImage
@@ -195,6 +243,17 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 
                 // Fixes when user scrolls too quickly for tab bar frame to update
                 self.tabBarController!.tabBar.frame.origin.y = self.view.bounds.size.height
+
+            case 2:
+                self.shouldAnimatePage2 = true
+
+                if !self.didBeginAnimatingPage2 {
+                    self.didBeginAnimatingPage2 = true
+                    self.beginAnimatingPage2()
+                }
+
+            case 3:
+                self.shouldAnimatePage2 = false
 
             case self.numberOfPages - 3:
                 // Fixes when user scrolls too quickly for tab bar frame to update
@@ -213,6 +272,44 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         // Fixes when user scrolls too quickly for background to update
         if !hasBackground {
             clearBackground()
+        }
+    }
+
+    // MARK: Individual page animations
+
+    func beginAnimatingPage2() {
+        self.didBeginAnimatingPage2 = true
+        self.blinkCodingLabelCursorTimer = self.getBlinkCodingLabelCursorTimer()
+        NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "initialCodingLabelCursorBlinkingDidFinish", userInfo: nil, repeats: false)
+    }
+
+    func getBlinkCodingLabelCursorTimer() -> NSTimer {
+        return NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "blinkCodingLabelCursor", userInfo: nil, repeats: true)
+    }
+
+    func initialCodingLabelCursorBlinkingDidFinish() {
+        self.blinkCodingLabelCursorTimer?.invalidate()
+        self.beginTypingCodingLabelText()
+    }
+
+    func beginTypingCodingLabelText() {
+        NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "appendCharacterToCodingLabel:", userInfo: nil, repeats: true)
+    }
+
+    func appendCharacterToCodingLabel(sender: NSTimer) {
+        self.codingLabel.text = (self.codingLabelText as NSString).substringToIndex(count(self.codingLabel.text!) + 1)
+
+        if (self.codingLabel.text == self.codingLabelText) {
+            sender.invalidate()
+            self.blinkCodingLabelCursorTimer = self.getBlinkCodingLabelCursorTimer()
+        } else {
+            self.codingLabelCursor.frame.origin.x += self.codingLabelCursor.frame.width
+        }
+    }
+
+    func blinkCodingLabelCursor() {
+        if self.shouldAnimatePage2 {
+            self.codingLabelCursor.alpha = CGFloat(!Bool(self.codingLabelCursor.alpha))
         }
     }
 
