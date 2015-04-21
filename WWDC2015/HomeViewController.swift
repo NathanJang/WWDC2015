@@ -294,6 +294,13 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
             case 3:
                 self.shouldAnimatePage2 = false
 
+            default:
+                break
+        }
+
+        // Separate switch-case so animations on the last pages can be included separately from their own animations
+        switch pageNumber {
+
             case self.numberOfPages - 3:
                 // Fixes when user scrolls too quickly for tab bar frame to update
                 self.tabBarController!.tabBar.frame.origin.y = self.view.bounds.size.height
