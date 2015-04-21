@@ -40,7 +40,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="About" image="InfoIcon" id="gF7-OQ-84i"/>
+                    <tabBarItem key="tabBarItem" title="About" image="InfoIcon" id="gF7-OQ-84i">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="InfoIconSelected"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4DC-l4-7Sl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -122,6 +126,7 @@
         <image name="HouseIcon" width="30" height="30"/>
         <image name="HouseIconSelected" width="30" height="30"/>
         <image name="InfoIcon" width="30" height="30"/>
+        <image name="InfoIconSelected" width="30" height="30"/>
     </resources>
     <color key="tintColor" red="0.0" green="0.46666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
