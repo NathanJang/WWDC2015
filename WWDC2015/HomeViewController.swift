@@ -68,19 +68,19 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         var eleventhGraderLabel = UILabel()
         eleventhGraderLabel.text = "AN 11TH GRADER AT"
         eleventhGraderLabel.font = UIFont(name: "Avenir-Book", size: 24)
-        eleventhGraderLabel.textColor = UIColor(red: 0.067, green: 0.733, blue: 1, alpha: 1) // #3DF
+        eleventhGraderLabel.textColor = UIColor(red: 0.067, green: 0.733, blue: 1, alpha: 1)
         eleventhGraderLabel.sizeToFit()
         return eleventhGraderLabel
     }()
-    var sasLabel = {() -> UILabel in
-        var sasLabel = UILabel()
-        sasLabel.text = "Shanghai\nAmerican\nSchool"
-        sasLabel.font = UIFont(name: "Avenir-Book", size: 32)
-        sasLabel.numberOfLines = 3
-        sasLabel.textAlignment = NSTextAlignment.Right
-        sasLabel.textColor = UIColor.whiteColor()
-        sasLabel.sizeToFit()
-        return sasLabel
+    var 上海美國學校標籤 = {() -> UILabel in
+        var 上海美國學校標籤 = UILabel()
+        上海美國學校標籤.text = "Shanghai\nAmerican\nSchool"
+        上海美國學校標籤.font = UIFont(name: "Avenir-Book", size: 32)
+        上海美國學校標籤.numberOfLines = 3
+        上海美國學校標籤.textAlignment = NSTextAlignment.Right
+        上海美國學校標籤.textColor = UIColor.whiteColor()
+        上海美國學校標籤.sizeToFit()
+        return 上海美國學校標籤
     }()
 
     // MARK: Page 2: Coding
@@ -92,8 +92,33 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         laptopIconImageView.sizeToFit()
         return laptopIconImageView
     }()
-    var codeLanguageLogoArray = [
+    var codeLanguageLogoArray: [UIView] = [
+        UIImageView(image: UIImage(named: "JavascriptLogo")),
+        UIImageView(image: UIImage(named: "NodeLogo")),
+        UIImageView(image: UIImage(named: "PHPLogo")),
+        UIImageView(image: UIImage(named: "HTML5Logo")),
+        {() -> UIView in
+            var objectiveCSwiftView = UIView()
+            var objectiveCLabel = UILabel(), swiftLabel = UILabel()
+            let font = UIFont(name: "HelveticaNeue-Light", size: 32)
+            objectiveCLabel.font = font
+            swiftLabel.font = font
+            objectiveCLabel.text = "Objective-C"
+            swiftLabel.text = "Swift"
+            objectiveCLabel.textColor = UIColor(red: 0.6, green: 0, blue: 0, alpha: 1)
+            swiftLabel.textColor = UIColor(red: 0.988, green: 0.282, blue: 0.192, alpha: 1)
+            objectiveCLabel.sizeToFit()
+            swiftLabel.sizeToFit()
+            let spacing: CGFloat = 10
+            swiftLabel.frame.origin.y = objectiveCLabel.frame.size.height + spacing
+            swiftLabel.center.x = objectiveCLabel.center.x
+            objectiveCSwiftView.addSubview(objectiveCLabel)
+            objectiveCSwiftView.addSubview(swiftLabel)
+            objectiveCSwiftView.frame.size = CGSize(width: objectiveCLabel.frame.size.width, height: objectiveCLabel.frame.size.height + swiftLabel.frame.size.height + spacing)
+            return objectiveCSwiftView
+        }()
     ]
+    var codeLanguageLogoScrollView = UIScrollView()
 
     let codingLabelText: String = "I like to code. "
     var codingLabel = {() -> UILabel in
@@ -108,6 +133,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         return codingLabelCursor
     }()
     var blinkCodingLabelCursorTimer: NSTimer?
+    var swipeCodeLanguageLogoScrollViewTimer: NSTimer?
     var didBeginAnimatingPage2 = false
 
     // MARK: - VC lifecycle
@@ -168,8 +194,8 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
                 self.eleventhGraderLabel.frame.origin.y = 30
                 self.scrollView.addSubview(self.eleventhGraderLabel)
 
-                self.sasLabel.frame.origin = CGPoint(x: self.eleventhGraderLabel.frame.origin.x + self.eleventhGraderLabel.frame.width - self.sasLabel.frame.width, y: 70)
-                self.scrollView.addSubview(self.sasLabel)
+                self.上海美國學校標籤.frame.origin = CGPoint(x: self.eleventhGraderLabel.frame.origin.x + self.eleventhGraderLabel.frame.width - self.上海美國學校標籤.frame.width, y: 70)
+                self.scrollView.addSubview(self.上海美國學校標籤)
 
             case 2:
                 // Set the text...
@@ -187,9 +213,21 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
                 self.codingLabelCursor.frame.origin = self.codingLabel.frame.origin
                 self.scrollView.addSubview(self.codingLabelCursor)
 
-                self.laptopIconImageView.center.x = center.x
-                self.laptopIconImageView.frame.origin.y = center.y - self.laptopIconImageView.frame.size.width / 2
+                self.laptopIconImageView.center = CGPoint(x: center.x, y: center.y - 50)
                 self.scrollView.addSubview(self.laptopIconImageView)
+
+                self.codeLanguageLogoScrollView.frame.origin.y = self.laptopIconImageView.frame.origin.y + 30
+                self.codeLanguageLogoScrollView.frame.size = CGSize(width: 204, height: 122)
+                self.codeLanguageLogoScrollView.center.x = self.laptopIconImageView.center.x
+                self.codeLanguageLogoScrollView.contentSize = CGSize(width: CGFloat(self.codeLanguageLogoArray.count) * self.codeLanguageLogoScrollView.frame.width, height: self.codeLanguageLogoScrollView.frame.height)
+                for index in 0..<self.codeLanguageLogoArray.count {
+                    let center = CGPoint(x: (CGFloat(index) + 0.5) * self.codeLanguageLogoScrollView.frame.width, y: self.codeLanguageLogoScrollView.frame.height / 2)
+                    self.codeLanguageLogoArray[index].center = center
+                    self.codeLanguageLogoScrollView.addSubview(self.codeLanguageLogoArray[index])
+                }
+                self.codeLanguageLogoScrollView.userInteractionEnabled = false
+                self.codeLanguageLogoScrollView.showsHorizontalScrollIndicator = false
+                self.scrollView.addSubview(self.codeLanguageLogoScrollView)
 
             default:
                 break
@@ -250,6 +288,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
                 if !self.didBeginAnimatingPage2 {
                     self.didBeginAnimatingPage2 = true
                     self.beginAnimatingPage2()
+                    self.swipeCodeLanguageLogoScrollViewTimer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "swipeCodeLanguageLogoScrollView", userInfo: nil, repeats: true)
                 }
 
             case 3:
@@ -277,10 +316,12 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 
     // MARK: Individual page animations
 
+    // MARK: Page 2
+
     func beginAnimatingPage2() {
         self.didBeginAnimatingPage2 = true
         self.blinkCodingLabelCursorTimer = self.getBlinkCodingLabelCursorTimer()
-        NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "initialCodingLabelCursorBlinkingDidFinish", userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "initialCodingLabelCursorBlinkingDidFinish", userInfo: nil, repeats: false)
     }
 
     func getBlinkCodingLabelCursorTimer() -> NSTimer {
@@ -310,6 +351,19 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     func blinkCodingLabelCursor() {
         if self.shouldAnimatePage2 {
             self.codingLabelCursor.alpha = CGFloat(!Bool(self.codingLabelCursor.alpha))
+        }
+    }
+
+    func swipeCodeLanguageLogoScrollView() {
+        if self.shouldAnimatePage2 {
+            let numberOfPages = self.codeLanguageLogoArray.count
+            let pageWidth = self.codeLanguageLogoScrollView.frame.width
+            let currentPageNumber = Int(self.codeLanguageLogoScrollView.contentOffset.x / pageWidth)
+            if currentPageNumber != numberOfPages - 1 {
+                self.codeLanguageLogoScrollView.setContentOffset(CGPoint(x: CGFloat(currentPageNumber + 1) * pageWidth, y: 0), animated: true)
+            } else {
+                self.codeLanguageLogoScrollView.setContentOffset(CGPointZero, animated: true)
+            }
         }
     }
 
