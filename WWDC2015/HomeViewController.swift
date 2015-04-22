@@ -60,6 +60,26 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         bioLabel.sizeToFit()
         return bioLabel
     }()
+    var swipeLeftView = {() -> UIView in
+        var swipeLeftView = UIView()
+
+        var label = UILabel()
+        label.text = "slide to unlock"
+        label.font = UIFont(name: "HelveticaNeue-Light", size: 24)
+        label.sizeToFit()
+        label.textColor = UIColor.grayColor()
+        swipeLeftView.addSubview(label)
+
+        var icon = UIImageView(image: UIImage(named: "SwipeLeftIcon"))
+        icon.frame.origin.x = label.frame.width + 5
+        icon.center.y = label.center.y
+        icon.tintColor = UIColor.grayColor()
+        swipeLeftView.addSubview(icon)
+
+        swipeLeftView.frame.size = CGSize(width: label.frame.width + icon.frame.width, height: icon.frame.height)
+
+        return swipeLeftView
+    }()
 
     // MARK: Page 1: Shanghai
     let blurredShanghaiBuildingsPhotoImage = UIImage(named: "BlurredShanghaiBuildingsPhoto")
@@ -136,6 +156,32 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     var swipeCodeLanguageLogoScrollViewTimer: NSTimer?
     var didBeginAnimatingPage2 = false
 
+    // MARK: Page 3: GitHub
+    var contributingOnGithubLabel = {() -> UILabel in
+        var contributingOnGithubLabel = UILabel()
+        contributingOnGithubLabel.text = "I contribute on"
+        contributingOnGithubLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 42)
+        contributingOnGithubLabel.sizeToFit()
+        contributingOnGithubLabel.textColor = UIColor.whiteColor()
+        return contributingOnGithubLabel
+    }()
+    var githubMarkImageView = UIImageView(image: UIImage(named: "GithubMark"))
+    var githubProfileButton = {() -> UIButton in
+        var githubProfileButton = UIButton()
+        var text = NSMutableAttributedString(string: "Tap to\ncheckout my profile.")
+        text.addAttribute(NSFontAttributeName, value: UIFont(name: "Courier", size: 18)!, range: NSRange(location: 7, length: 8))
+        githubProfileButton.setAttributedTitle(text, forState: UIControlState.Normal)
+        githubProfileButton.titleLabel!.textAlignment = NSTextAlignment.Center
+        githubProfileButton.titleLabel!.numberOfLines = 2
+        githubProfileButton.backgroundColor = UIColor(red: 0.945, green: 0.965, blue: 0.984, alpha: 1)
+        githubProfileButton.setTitleColor(UIColor(red: 0.0141, green: 0.31, blue: 0.475, alpha: 1), forState: UIControlState.Normal)
+        githubProfileButton.titleLabel!.sizeToFit()
+        githubProfileButton.frame.size = CGSize(width: 200, height: 50)
+        githubProfileButton.layer.cornerRadius = githubProfileButton.frame.height / 2 // rounded sides
+        githubProfileButton.layer.masksToBounds = true
+        return githubProfileButton
+    }()
+
     // MARK: - VC lifecycle
 
     override func viewDidLoad() {
@@ -176,18 +222,24 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 
             case 0:
                 // facePhotoImageView
-                self.facePhotoImageView.center = CGPoint(x: center.x, y: center.y - 100)
+                self.facePhotoImageView.center = CGPoint(x: center.x, y: center.y - 120)
                 self.scrollView.addSubview(self.facePhotoImageView)
 
                 // nameLabel
                 self.nameLabel.center.x = center.x
-                self.nameLabel.frame.origin.y = center.y - 10
+                self.nameLabel.frame.origin.y = center.y - 30
                 self.scrollView.addSubview(self.nameLabel)
 
                 // bioLabel
                 self.bioLabel.center.x = center.x
-                self.bioLabel.frame.origin.y = center.y + 30
+                self.bioLabel.frame.origin.y = center.y + 10
                 self.scrollView.addSubview(self.bioLabel)
+
+                // swipeLeftView
+                self.swipeLeftView.center.x = center.x
+                //self.swipeLeftView.frame.origin.y = self.bioLabel.frame.origin.y + self.bioLabel.frame.height + 20
+                self.swipeLeftView.center.y = ((self.bioLabel.frame.origin.y + self.bioLabel.frame.height) + (frame.height - self.tabBarController!.tabBar.frame.height)) / 2
+                self.scrollView.addSubview(self.swipeLeftView)
 
             case 1:
                 self.eleventhGraderLabel.center.x = center.x
@@ -228,6 +280,18 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
                 self.codeLanguageLogoScrollView.userInteractionEnabled = false
                 self.codeLanguageLogoScrollView.showsHorizontalScrollIndicator = false
                 self.scrollView.addSubview(self.codeLanguageLogoScrollView)
+
+            case 3:
+                self.githubMarkImageView.center = center
+                self.scrollView.addSubview(self.githubMarkImageView)
+
+                self.contributingOnGithubLabel.center = CGPoint(x: center.x, y: self.githubMarkImageView.frame.origin.y - 40)
+                self.scrollView.addSubview(self.contributingOnGithubLabel)
+
+                self.githubProfileButton.addTarget(self, action: "openGithubProfile", forControlEvents: UIControlEvents.TouchUpInside)
+                self.githubProfileButton.center.x = center.x
+                self.githubProfileButton.frame.origin.y = self.githubMarkImageView.frame.origin.y + self.githubMarkImageView.frame.height + 30
+                self.scrollView.addSubview(self.githubProfileButton)
 
             default:
                 break
@@ -283,7 +347,17 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
                 self.tabBarController!.tabBar.frame.origin.y = self.view.bounds.size.height
 
             case 2:
+                if offsetPercentage < 0.5 {
+                    setDefaultStatusBarStyle()
+                } else {
+                    setLightStatusBarStyle()
+                }
                 self.shouldAnimatePage2 = true
+
+                hasBackground = true
+                self.backgroundBackView.image = nil
+                self.backgroundBackView.backgroundColor = UIColor.whiteColor()
+                self.backgroundFrontView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(offsetPercentage)
 
                 if !self.didBeginAnimatingPage2 {
                     self.didBeginAnimatingPage2 = true
@@ -292,7 +366,16 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
                 }
 
             case 3:
+                if offsetPercentage < 0.5 {
+                    setLightStatusBarStyle()
+                } else {
+                    setDefaultStatusBarStyle()
+                }
                 self.shouldAnimatePage2 = false
+
+                hasBackground = true
+                self.backgroundBackView.backgroundColor = UIColor.blackColor()
+                self.backgroundFrontView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(offsetPercentage)
 
             default:
                 break
@@ -345,13 +428,15 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     }
 
     func appendCharacterToCodingLabel(sender: NSTimer) {
-        self.codingLabel.text = (self.codingLabelText as NSString).substringToIndex(count(self.codingLabel.text!) + 1)
+        if self.shouldAnimatePage2 {
+            self.codingLabel.text = (self.codingLabelText as NSString).substringToIndex(count(self.codingLabel.text!) + 1)
 
-        if (self.codingLabel.text == self.codingLabelText) {
-            sender.invalidate()
-            self.blinkCodingLabelCursorTimer = self.getBlinkCodingLabelCursorTimer()
-        } else {
-            self.codingLabelCursor.frame.origin.x += self.codingLabelCursor.frame.width
+            if (self.codingLabel.text == self.codingLabelText) {
+                sender.invalidate()
+                self.blinkCodingLabelCursorTimer = self.getBlinkCodingLabelCursorTimer()
+            } else {
+                self.codingLabelCursor.frame.origin.x += self.codingLabelCursor.frame.width
+            }
         }
     }
 
@@ -372,6 +457,12 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
                 self.codeLanguageLogoScrollView.setContentOffset(CGPointZero, animated: true)
             }
         }
+    }
+
+    // MARK: Page 3
+
+    func openGithubProfile() {
+        UIApplication.sharedApplication().openURL(NSURL(string: "https://gist.github.com/NathanJang/d3320e30c1cd997fb463")!) // Opens a gist proving the account is mine
     }
 
     // MARK: - Delegate methods
