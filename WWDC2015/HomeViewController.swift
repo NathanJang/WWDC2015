@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Shimmer
 
 class HomeViewController: UIViewController, UIScrollViewDelegate {
 
-    let numberOfPages = 5
+    let numberOfPages = 6
 
     var scrollView = UIScrollView()
     // These are 2 views behind the scroll view.
@@ -60,7 +61,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         bioLabel.sizeToFit()
         return bioLabel
     }()
-    var swipeLeftView = {() -> UIView in
+    var swipeLeftView = {() -> FBShimmeringView in
         var swipeLeftView = UIView()
 
         var label = UILabel()
@@ -78,7 +79,12 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 
         swipeLeftView.frame.size = CGSize(width: label.frame.width + icon.frame.width, height: icon.frame.height)
 
-        return swipeLeftView
+        var shimmeringWrapperView = FBShimmeringView(frame: swipeLeftView.frame)
+        shimmeringWrapperView.shimmeringDirection = FBShimmerDirection.Left
+        shimmeringWrapperView.contentView = swipeLeftView
+        shimmeringWrapperView.shimmeringSpeed = 115
+        shimmeringWrapperView.shimmering = true
+        return shimmeringWrapperView
     }()
 
     // MARK: Page 1: Shanghai
@@ -182,6 +188,60 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         return githubProfileButton
     }()
 
+    // MARK: Page 4: School
+    var atSchoolLabel = {() -> UILabel in
+        var atSchoolLabel = UILabel()
+        atSchoolLabel.text = "At school, I am a leader of"
+        atSchoolLabel.font = UIFont(name: "HelveticaNeue-Light", size: 22)
+        atSchoolLabel.sizeToFit()
+        return atSchoolLabel
+    }()
+    let clubsArray: [UILabel] = [
+        {() -> UILabel in
+            var programmingClub = UILabel()
+            programmingClub.text = "Programming Club"
+            programmingClub.font = UIFont(name: "HelveticaNeue-Light", size: 36)
+            programmingClub.textColor = UIColor(red: 0.067, green: 0.533, blue: 0.667, alpha: 1)
+            programmingClub.sizeToFit()
+            return programmingClub
+        }(),
+        {() -> UILabel in
+            var srt = UILabel()
+            srt.text = "StudentsЯTeachers"
+            srt.font = UIFont(name: "HelveticaNeue-Light", size: 34)
+            srt.textColor = UIColor(red: 0.667, green: 0.067, blue: 0, alpha: 1)
+            srt.sizeToFit()
+            return srt
+        }(),
+        {() -> UILabel in
+            var quizBowl = UILabel()
+            quizBowl.text = "Quiz Bowl"
+            quizBowl.font = UIFont(name: "HelveticaNeue-Light", size: 36)
+            quizBowl.textColor = UIColor(red: 0.867, green: 0.6, blue: 0, alpha: 1)
+            quizBowl.sizeToFit()
+            return quizBowl
+        }()
+    ]
+    var quizBowlTournamentPhotoImageView = {() -> UIImageView in
+        var quizBowlTournamentPhotoImageView = UIImageView(image: UIImage(named: "QuizBowlTournamentPhoto"))
+        return quizBowlTournamentPhotoImageView
+    }()
+
+    // MARK: Page 5: Done
+    var portfolioLabel = {() -> UILabel in
+        var portfolioLabel = UILabel()
+        portfolioLabel.text = "Check out\nmy work."
+        portfolioLabel.font = UIFont(name: "HelveticaNeue-UltraLight", size: 64)
+        portfolioLabel.numberOfLines = 2
+        portfolioLabel.textAlignment = NSTextAlignment.Center
+        portfolioLabel.sizeToFit()
+        return portfolioLabel
+    }()
+    var downArrowImageView = {() -> UIImageView in
+        var downArrowImageView = UIImageView(image: UIImage(named: "DownArrowIcon"))
+        return downArrowImageView
+    }()
+
     // MARK: - VC lifecycle
 
     override func viewDidLoad() {
@@ -237,7 +297,6 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 
                 // swipeLeftView
                 self.swipeLeftView.center.x = center.x
-                //self.swipeLeftView.frame.origin.y = self.bioLabel.frame.origin.y + self.bioLabel.frame.height + 20
                 self.swipeLeftView.center.y = ((self.bioLabel.frame.origin.y + self.bioLabel.frame.height) + (frame.height - self.tabBarController!.tabBar.frame.height)) / 2
                 self.scrollView.addSubview(self.swipeLeftView)
 
@@ -292,6 +351,39 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
                 self.githubProfileButton.center.x = center.x
                 self.githubProfileButton.frame.origin.y = self.githubMarkImageView.frame.origin.y + self.githubMarkImageView.frame.height + 30
                 self.scrollView.addSubview(self.githubProfileButton)
+
+            case 4:
+                self.atSchoolLabel.center.x = center.x
+                self.atSchoolLabel.frame.origin.y = 0.125 * frame.height
+                self.scrollView.addSubview(self.atSchoolLabel)
+
+                self.quizBowlTournamentPhotoImageView.frame.size.width = 0.9 * frame.width
+                self.quizBowlTournamentPhotoImageView.frame.size.height = 0.75 * self.quizBowlTournamentPhotoImageView.frame.size.width
+                self.quizBowlTournamentPhotoImageView.center.x = center.x
+                self.quizBowlTournamentPhotoImageView.frame.origin.y = frame.height - 0.05 * frame.width - self.quizBowlTournamentPhotoImageView.frame.height
+                self.scrollView.addSubview(self.quizBowlTournamentPhotoImageView)
+
+                for view in self.clubsArray {
+                    view.center.x = center.x
+                }
+
+                self.clubsArray[1].center.y = ((self.atSchoolLabel.frame.origin.y + self.atSchoolLabel.frame.height) + self.quizBowlTournamentPhotoImageView.frame.origin.y) / 2
+                self.scrollView.addSubview(self.clubsArray[1])
+
+                self.clubsArray[0].frame.origin.y = self.clubsArray[1].frame.origin.y - self.clubsArray[0].frame.height - 15
+                self.scrollView.addSubview(self.clubsArray[0])
+
+                self.clubsArray[2].frame.origin.y = self.clubsArray[1].frame.origin.y + self.clubsArray[1].frame.height + 10
+                self.scrollView.addSubview(self.clubsArray[2])
+
+            case 5:
+                self.downArrowImageView.center.x = center.x
+                self.downArrowImageView.frame.origin.y = frame.height - self.tabBarController!.tabBar.frame.height - self.downArrowImageView.frame.height - 5
+                self.scrollView.addSubview(self.downArrowImageView)
+
+                self.portfolioLabel.center = center
+                self.portfolioLabel.textColor = self.view.tintColor
+                self.scrollView.addSubview(self.portfolioLabel)
 
             default:
                 break
