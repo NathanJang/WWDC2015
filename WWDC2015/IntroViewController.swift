@@ -19,7 +19,9 @@ class IntroViewController: UIViewController {
     var subtitleLabel = {() -> UILabel in
         var subtitleLabel = UILabel()
         subtitleLabel.font = UIFont(name: "HelveticaNeue-Light", size: 24)
-        subtitleLabel.text = "Jonathan Chan\nWWDC 2015"
+        var attributedText = NSMutableAttributedString(string: "Jonathan Chan\nWWDC15")
+        attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "HelveticaNeue", size: 24)!, range: NSRange(location: 14, length: 4))
+        subtitleLabel.attributedText = attributedText
         subtitleLabel.numberOfLines = 2
         subtitleLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
         subtitleLabel.sizeToFit()
