@@ -58,7 +58,7 @@ class IntroViewController: UIViewController {
         self.view.addSubview(self.continueButton)
         continueButton.addTarget(self, action: "continueButtonTouchUp", forControlEvents: UIControlEvents.TouchUpInside)
 
-        UIView.animateWithDuration(1, delay: 1, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+        UIView.animateWithDuration(1, delay: 0.1, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
             self.helloLabel.center.y -= 85
             self.subtitleLabel.alpha = 1
             self.continueButton.alpha = 1
