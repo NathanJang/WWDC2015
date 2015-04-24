@@ -40,7 +40,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 
         // border
         facePhotoImageView.layer.borderColor = UIColor.blackColor().CGColor
-        facePhotoImageView.layer.borderWidth = 2
+        facePhotoImageView.layer.borderWidth = 1
 
         return facePhotoImageView
     }()
