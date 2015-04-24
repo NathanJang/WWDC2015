@@ -382,7 +382,6 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
                 self.scrollView.addSubview(self.downArrowImageView)
 
                 self.portfolioLabel.center = center
-                self.portfolioLabel.textColor = self.view.tintColor
                 self.scrollView.addSubview(self.portfolioLabel)
 
             default:
