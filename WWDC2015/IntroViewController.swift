@@ -36,6 +36,18 @@ class IntroViewController: UIViewController {
         continueButton.alpha = 0
         return continueButton
     }()
+    var skipButton = {() -> UIButton in
+        var skipButton = UIButton()
+        skipButton.setBackgroundImage(UIImage(named: "RightSkipButton"), forState: UIControlState.Normal)
+        skipButton.sizeToFit()
+        skipButton.alpha = 0
+        return skipButton
+    }()
+    var headphonesImageView = {() -> UIImageView in
+        var headphonesImageView = UIImageView(image: UIImage(named: "HeadphonesIcon"))
+        headphonesImageView.alpha = 0
+        return headphonesImageView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +57,8 @@ class IntroViewController: UIViewController {
         self.helloLabel.center = self.view.center
         self.subtitleLabel.center = self.view.center
         self.continueButton.center = CGPoint(x: self.view.center.x, y: self.view.center.y + 100)
+        self.skipButton.center = CGPoint(x: self.view.center.x + self.skipButton.frame.width / 2, y: self.view.center.y + 100)
+        self.headphonesImageView.center = CGPoint(x: self.view.center.x, y: self.view.center.y - 85)
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,7 +72,10 @@ class IntroViewController: UIViewController {
         self.view.addSubview(self.helloLabel)
         self.view.addSubview(self.subtitleLabel)
         self.view.addSubview(self.continueButton)
-        continueButton.addTarget(self, action: "continueButtonTouchUp", forControlEvents: UIControlEvents.TouchUpInside)
+        self.continueButton.addTarget(self, action: "continueButtonTouchUpFirst", forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(self.skipButton)
+        self.skipButton.addTarget(self, action: "skipButtonTouchUp", forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(self.headphonesImageView)
 
         UIView.animateWithDuration(1, delay: 0.1, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
             self.helloLabel.center.y -= 85
@@ -67,7 +84,24 @@ class IntroViewController: UIViewController {
         }, completion: nil)
     }
 
-    func continueButtonTouchUp() {
-        self.performSegueWithIdentifier("exitIntroView", sender: self);
+    func continueButtonTouchUpFirst() {
+        self.continueButton.removeTarget(self, action: "continueButtonTouchUpFirst", forControlEvents: UIControlEvents.TouchUpInside)
+        self.continueButton.addTarget(self, action: "continueButtonTouchUpSecond", forControlEvents: UIControlEvents.TouchUpInside)
+
+        UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+            self.helloLabel.alpha = 0
+            self.subtitleLabel.alpha = 0
+            self.continueButton.center.x += -self.continueButton.frame.width / 2
+            self.skipButton.alpha = 1
+            self.headphonesImageView.alpha = 1
+        }, completion: nil)
+    }
+
+    func continueButtonTouchUpSecond() {
+        self.performSegueWithIdentifier("showAnimationView", sender: self)
+    }
+
+    func skipButtonTouchUp() {
+        self.performSegueWithIdentifier("exitIntroView", sender: self)
     }
 }
