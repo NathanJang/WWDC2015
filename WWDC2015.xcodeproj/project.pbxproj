@@ -53,6 +53,9 @@
 		CEAC46A81ADE609B003AD804 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CEAC46A91ADE609B003AD804 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		CEAC46AA1ADE609B003AD804 /* PortfolioMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioMenuViewController.swift; sourceTree = "<group>"; };
+		CEC63BD11AECC83500355F0A /* Acknowledgments.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Acknowledgments.txt; path = WWDC2015/Acknowledgments.txt; sourceTree = "<group>"; };
+		CEC63BD31AECCCA400355F0A /* Attributions.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Attributions.txt; path = WWDC2015/Attributions.txt; sourceTree = "<group>"; };
+		CEC63BD51AECD4D200355F0A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = WWDC2015/README.md; sourceTree = "<group>"; };
 		EAB8939AA2AA64D856763298 /* Pods-WWDC2015.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWDC2015.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WWDC2015/Pods-WWDC2015.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +120,9 @@
 		CEAC46791ADE604F003AD804 = {
 			isa = PBXGroup;
 			children = (
+				CEC63BD51AECD4D200355F0A /* README.md */,
+				CEC63BD11AECC83500355F0A /* Acknowledgments.txt */,
+				CEC63BD31AECCCA400355F0A /* Attributions.txt */,
 				CEAC46841ADE604F003AD804 /* WWDC2015 */,
 				CEAC469A1ADE604F003AD804 /* WWDC2015Tests */,
 				CEAC46831ADE604F003AD804 /* Products */,
@@ -469,7 +475,7 @@
 					"${PODS_ROOT}/Headers/**",
 				);
 				INFOPLIST_FILE = WWDC2015/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "WWDC2015/WWDC2015-Bridging-Header.h";
@@ -490,7 +496,7 @@
 					"${PODS_ROOT}/Headers/**",
 				);
 				INFOPLIST_FILE = WWDC2015/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "WWDC2015/WWDC2015-Bridging-Header.h";

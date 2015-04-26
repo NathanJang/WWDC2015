@@ -1,0 +1,4 @@
+I would like to thank the following people for their support:
+- Yichen Cao, who inspired me and helped me with design and code, who is also applying this year to WWDC15
+- My parents, who support my ambitions
+- Amy Yang, who helped me with design

@@ -1,0 +1,17 @@
+This app uses various icons and images under various licences.
+
+- My photo, was taken by Amy Yang and is used, including modifications thereof to produce the app's icon, with permission.
+- "Headphones" is created by Austin Condiff (CC BY 3.0) from https://thenounproject.com/term/headphones/70850/
+- "House" is created by Edward Boatman (CC BY 3.0) from https://thenounproject.com/term/house/293/
+- "Portfolio" is created by BraveBros. (CC BY 3.0) from https://thenounproject.com/term/portfolio/110241/
+- "Info" is created by NAS (CC BY 3.0) from https://thenounproject.com/term/info/52713/
+- "Unofficial JavaScript logo 2" is created by Chris Williams in the public domain from https://en.wikipedia.org/wiki/File:Unofficial_JavaScript_logo_2.svg
+- "Node.js standard EPS" is created by Joyent, Inc., used under nominative fair use from https://nodejs.org/about/resources/
+- The PHP logo is created by The PHP Group, used under nominative fair use from https://php.net/download-logos.php
+- The HTML5 logo is created by W3C (CC BY 3.0) from http://www.w3.org/html/logo/downloads/HTML5_Logo.svg
+- The PHP logo is created by GitHub, Inc., used under nominative fair use from https://github.com/logos
+- The photo of my Quiz Bowl team was taken by Claire Ye and is used with permission.
+
+All other graphics are original content.
+
+This app uses "Shimmer" by Facebook, Inc. used under the BSD licence.
