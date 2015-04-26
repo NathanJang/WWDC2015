@@ -57,7 +57,7 @@
 		CEAC46AA1ADE609B003AD804 /* PortfolioMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioMenuViewController.swift; sourceTree = "<group>"; };
 		CEC63BD11AECC83500355F0A /* Acknowledgments.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Acknowledgments.txt; path = WWDC2015/Acknowledgments.txt; sourceTree = "<group>"; };
 		CEC63BD31AECCCA400355F0A /* Attributions.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Attributions.txt; path = WWDC2015/Attributions.txt; sourceTree = "<group>"; };
-		CEC63BD51AECD4D200355F0A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = WWDC2015/README.md; sourceTree = "<group>"; };
+		CEC63BD51AECD4D200355F0A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EAB8939AA2AA64D856763298 /* Pods-WWDC2015.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWDC2015.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WWDC2015/Pods-WWDC2015.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
