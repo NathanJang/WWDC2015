@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CE5429391AE002500096B101 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5429381AE002500096B101 /* Globals.swift */; };
+		CE96616F1AEB5CBD008DEBD7 /* AnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE96616E1AEB5CBD008DEBD7 /* AnimationViewController.m */; };
+		CE9661741AEB5FB7008DEBD7 /* AnimationAudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE9661731AEB5FB7008DEBD7 /* AnimationAudio.mp3 */; };
 		CEAC46881ADE604F003AD804 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC46871ADE604F003AD804 /* AppDelegate.swift */; };
 		CEAC468D1ADE604F003AD804 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEAC468B1ADE604F003AD804 /* Main.storyboard */; };
 		CEAC468F1ADE604F003AD804 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEAC468E1ADE604F003AD804 /* Images.xcassets */; };
@@ -35,6 +37,9 @@
 		4FFDC63B75915F51C2E2E803 /* Pods-WWDC2015.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWDC2015.release.xcconfig"; path = "Pods/Target Support Files/Pods-WWDC2015/Pods-WWDC2015.release.xcconfig"; sourceTree = "<group>"; };
 		CE5429381AE002500096B101 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		CE54293B1AE22F460096B101 /* WWDC2015-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WWDC2015-Bridging-Header.h"; sourceTree = "<group>"; };
+		CE96616D1AEB5CBD008DEBD7 /* AnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationViewController.h; sourceTree = "<group>"; };
+		CE96616E1AEB5CBD008DEBD7 /* AnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationViewController.m; sourceTree = "<group>"; };
+		CE9661731AEB5FB7008DEBD7 /* AnimationAudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AnimationAudio.mp3; sourceTree = "<group>"; };
 		CEAC46821ADE604F003AD804 /* WWDC2015.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWDC2015.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEAC46861ADE604F003AD804 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEAC46871ADE604F003AD804 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,10 +92,21 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CE9661701AEB5F3D008DEBD7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC468E1ADE604F003AD804 /* Images.xcassets */,
+				CE9661731AEB5FB7008DEBD7 /* AnimationAudio.mp3 */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		CE9E5A061ADE6C180003CF41 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				CEAC46A91ADE609B003AD804 /* IntroViewController.swift */,
+				CE96616D1AEB5CBD008DEBD7 /* AnimationViewController.h */,
+				CE96616E1AEB5CBD008DEBD7 /* AnimationViewController.m */,
 				CEAC46A81ADE609B003AD804 /* HomeViewController.swift */,
 				CEAC46AA1ADE609B003AD804 /* PortfolioMenuViewController.swift */,
 				CEAC46A71ADE609B003AD804 /* AboutViewController.swift */,
@@ -124,7 +140,7 @@
 				CEAC46871ADE604F003AD804 /* AppDelegate.swift */,
 				CE9E5A061ADE6C180003CF41 /* View Controllers */,
 				CEAC468B1ADE604F003AD804 /* Main.storyboard */,
-				CEAC468E1ADE604F003AD804 /* Images.xcassets */,
+				CE9661701AEB5F3D008DEBD7 /* Resources */,
 				CEAC46901ADE604F003AD804 /* LaunchScreen.xib */,
 				CE5429381AE002500096B101 /* Globals.swift */,
 				CE54293B1AE22F460096B101 /* WWDC2015-Bridging-Header.h */,
@@ -244,6 +260,7 @@
 			files = (
 				CEAC468D1ADE604F003AD804 /* Main.storyboard in Resources */,
 				CEAC46921ADE604F003AD804 /* LaunchScreen.xib in Resources */,
+				CE9661741AEB5FB7008DEBD7 /* AnimationAudio.mp3 in Resources */,
 				CEAC468F1ADE604F003AD804 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +329,7 @@
 			files = (
 				CEAC46AD1ADE609B003AD804 /* IntroViewController.swift in Sources */,
 				CEAC46AB1ADE609B003AD804 /* AboutViewController.swift in Sources */,
+				CE96616F1AEB5CBD008DEBD7 /* AnimationViewController.m in Sources */,
 				CEAC46AE1ADE609B003AD804 /* PortfolioMenuViewController.swift in Sources */,
 				CEAC46881ADE604F003AD804 /* AppDelegate.swift in Sources */,
 				CEAC46AC1ADE609B003AD804 /* HomeViewController.swift in Sources */,
