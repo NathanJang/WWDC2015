@@ -71,7 +71,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         label.textColor = UIColor.grayColor()
         swipeLeftView.addSubview(label)
 
-        var icon = UIImageView(image: UIImage(named: "SwipeLeftIcon"))
+        var icon = UIImageView(image: UIImage(named: "LeftArrowIconLight"))
         icon.frame.origin.x = label.frame.width + 5
         icon.center.y = label.center.y
         icon.tintColor = UIColor.grayColor()
