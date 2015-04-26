@@ -10,6 +10,8 @@
 		CE5429391AE002500096B101 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5429381AE002500096B101 /* Globals.swift */; };
 		CE96616F1AEB5CBD008DEBD7 /* AnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE96616E1AEB5CBD008DEBD7 /* AnimationViewController.m */; };
 		CE9661741AEB5FB7008DEBD7 /* AnimationAudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE9661731AEB5FB7008DEBD7 /* AnimationAudio.mp3 */; };
+		CEA6D8BF1AED2E1E00F43B77 /* Attributions.txt in Resources */ = {isa = PBXBuildFile; fileRef = CEC63BD31AECCCA400355F0A /* Attributions.txt */; };
+		CEA6D8C01AED2E2100F43B77 /* Acknowledgments.txt in Resources */ = {isa = PBXBuildFile; fileRef = CEC63BD11AECC83500355F0A /* Acknowledgments.txt */; };
 		CEAC46881ADE604F003AD804 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC46871ADE604F003AD804 /* AppDelegate.swift */; };
 		CEAC468D1ADE604F003AD804 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEAC468B1ADE604F003AD804 /* Main.storyboard */; };
 		CEAC468F1ADE604F003AD804 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEAC468E1ADE604F003AD804 /* Images.xcassets */; };
@@ -265,9 +267,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEAC468D1ADE604F003AD804 /* Main.storyboard in Resources */,
+				CEA6D8C01AED2E2100F43B77 /* Acknowledgments.txt in Resources */,
 				CEAC46921ADE604F003AD804 /* LaunchScreen.xib in Resources */,
 				CE9661741AEB5FB7008DEBD7 /* AnimationAudio.mp3 in Resources */,
 				CEAC468F1ADE604F003AD804 /* Images.xcassets in Resources */,
+				CEA6D8BF1AED2E1E00F43B77 /* Attributions.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
