@@ -1,6 +1,0 @@
-framework module NSUserDefaults_Subscripting {
-  umbrella header "Pods-WWDC2015-NSUserDefaults+Subscripting-umbrella.h"
-
-  export *
-  module * { export * }
-}

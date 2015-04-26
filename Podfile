@@ -4,7 +4,6 @@
 use_frameworks!
 
 target 'WWDC2015' do
-    pod 'NSUserDefaults+Subscripting'
     pod 'Shimmer'
 end
 

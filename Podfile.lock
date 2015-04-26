@@ -1,13 +1,10 @@
 PODS:
-  - NSUserDefaults+Subscripting (1.0.0)
   - Shimmer (1.0.2)
 
 DEPENDENCIES:
-  - NSUserDefaults+Subscripting
   - Shimmer
 
 SPEC CHECKSUMS:
-  NSUserDefaults+Subscripting: 7e6e8f15dffe998259030f005a7c4e3782e510fd
   Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
 
 COCOAPODS: 0.36.4

@@ -6,12 +6,6 @@
 // project.
 
 
-// NSUserDefaults+Subscripting
-#define COCOAPODS_POD_AVAILABLE_NSUserDefaults_Subscripting
-#define COCOAPODS_VERSION_MAJOR_NSUserDefaults_Subscripting 1
-#define COCOAPODS_VERSION_MINOR_NSUserDefaults_Subscripting 0
-#define COCOAPODS_VERSION_PATCH_NSUserDefaults_Subscripting 0
-
 // Shimmer
 #define COCOAPODS_POD_AVAILABLE_Shimmer
 #define COCOAPODS_VERSION_MAJOR_Shimmer 1

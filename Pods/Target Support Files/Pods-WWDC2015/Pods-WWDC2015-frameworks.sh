@@ -48,10 +48,8 @@ code_sign() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework 'NSUserDefaults_Subscripting.framework'
   install_framework 'Shimmer.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework 'NSUserDefaults_Subscripting.framework'
   install_framework 'Shimmer.framework'
 fi
