@@ -27,7 +27,7 @@ class PortfolioMenuViewController: UIViewController {
     var qbButton = {() -> UIButton in
         var button = UIButton.buttonWithType(UIButtonType.System) as! UIButton
         button.setTitle("quiz-buzzer", forState: UIControlState.Normal)
-        button.titleLabel?.font = UIFont(name: "Menlo-Regular", size: 36)
+        button.titleLabel?.font = UIFont(name: "Menlo-Regular", size: 38)
         button.sizeToFit()
 
         var imageView = UIImageView(image: UIImage(named: "RightArrowIconLight"))
@@ -42,11 +42,11 @@ class PortfolioMenuViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 
-        self.srtSignupButton.center = CGPoint(x: self.view.center.x, y: self.view.center.y - self.srtSignupButton.frame.height)
+        self.srtSignupButton.center = CGPoint(x: self.view.center.x, y: self.view.center.y - self.srtSignupButton.frame.height / 2)
         self.srtSignupButton.addTarget(self, action: "showSrtAlert", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(self.srtSignupButton)
 
-        self.qbButton.center = CGPoint(x: self.view.center.x, y: self.view.center.y + self.qbButton.frame.height)
+        self.qbButton.center = CGPoint(x: self.view.center.x, y: self.view.center.y + self.qbButton.frame.height / 2)
         self.qbButton.addTarget(self, action: "showQbAlert", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(self.qbButton)
     }

@@ -21,6 +21,7 @@ class AboutViewController: UIViewController {
         acknowledgmentsLabel.text = text as? String
         acknowledgmentsLabel.numberOfLines = 0
         acknowledgmentsLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        acknowledgmentsLabel.font = UIFont(name: "Avenir-Book", size: 16)
         return acknowledgmentsLabel
     }()
 
@@ -31,6 +32,7 @@ class AboutViewController: UIViewController {
         attributionsLabel.text = text as? String
         attributionsLabel.numberOfLines = 0
         attributionsLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        attributionsLabel.font = UIFont(name: "Avenir-Book", size: 16)
         return attributionsLabel
     }()
 
